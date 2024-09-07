@@ -1,0 +1,149 @@
+body {
+  background-color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-content: center;
+  transition:
+  background 300ms,
+  transform 200ms;
+  font-weight: 600;
+}
+
+.button__text {
+  position: absolute;
+  inset: 0;
+  animation: text-rotation 8s linear infinite;
+}
+
+.button__text > span {
+  position: absolute;
+  inset: -7px;
+}
+
+.button__circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__icon--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background: #000;
+}
+
+.button:hover .button__icon {
+  color: #fff;
+}
+
+.button:hover .button__icon:first-child {
+  transition: transform 0.3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+
+.button:hover .button__icon--copy {
+  transition: transform 0.3s ease-in-out 0.1s;
+  transform: translate(0);
+}
+
+@keyframes text-rotation {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.telegram .button__text > span {
+  transform: rotate(calc(20deg * var(--index)));
+}
+
+.twitter .button__text > span {
+  transform: rotate(calc(22deg * var(--index)));
+}
+
+.instagram .button__text > span {
+  transform: rotate(calc(18deg * var(--index)));
+}
+
+.discord .button__text > span {
+  transform: rotate(calc(22deg * var(--index)));
+}
+
+.telegram {
+  background: #2aabee;
+  color: #fff;
+}
+
+.twitter {
+  background: #00ccff;
+  color: #fff;
+}
+
+.instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  color: #fff;
+}
+
+.discord {
+  background: #5865f2;
+  color: #fff;
+}
+
+.telegram .button__circle {
+  background: #212121;
+  color: #2aabee;
+}
+
+.twitter .button__circle {
+  background: #212121;
+  color: #00ccff;
+}
+
+.instagram .button__circle {
+  background: #212121;
+  color: #dc2743;
+}
+
+.discord .button__circle {
+  background: #212121;
+  color: #5865f2;
+}
